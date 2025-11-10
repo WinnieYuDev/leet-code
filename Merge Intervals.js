@@ -35,3 +35,8 @@ console.log(merge([[1,3],[2,6],[8,10],[15,18]]));
 // Space Complexity: O(n)
 // Reason: We store merged intervals in a separate array.
 // Impact: Uses extra memory, but keeps logic simple and readable.
+
+// “I first sort the intervals by start time, then merge overlapping ones in a single pass.
+// Sorting ensures I only need one loop to check overlaps.
+// The time complexity is O(n log n) because of the sort, and the merge step is linear.
+// It’s a clean and efficient approach for combining overlapping ranges.”

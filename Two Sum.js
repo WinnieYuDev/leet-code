@@ -27,3 +27,8 @@ console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
 // Space Complexity: O(n)
 // Reason: We store each number once in the object.
 // Impact: Uses more memory but much faster than a double loop (O(n²)).
+
+// “I use a hash map to remember numbers I’ve seen.
+// For each number, I check if its complement (target - num) already exists.
+// This makes the solution O(n) since each lookup is constant time.
+// It’s more memory-heavy than brute force, but much faster.”

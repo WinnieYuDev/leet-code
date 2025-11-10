@@ -31,3 +31,8 @@ console.log(lengthOfLongestSubstring("abcabcbb")); // 3 ("abc")
 // Space Complexity: O(min(n, charset))
 // Reason: The Set stores at most one of each unique character.
 // Impact: Memory use grows with distinct characters, not total length (e.g., ~26 for English letters).
+
+// “I use a sliding window with a Set to track unique characters.
+// When I see a duplicate, I shrink the window from the left until it’s unique again.
+// Each character is processed once, so the time complexity is O(n).
+// This is a classic window pattern for substring problems.”
