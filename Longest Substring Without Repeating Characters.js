@@ -36,3 +36,6 @@ console.log(lengthOfLongestSubstring("abcabcbb")); // 3 ("abc")
 // When I see a duplicate, I shrink the window from the left until it’s unique again.
 // Each character is processed once, so the time complexity is O(n).
 // This is a classic window pattern for substring problems.”
+
+//duplicates of array
+//degrees of array to continue studying later
