@@ -6,22 +6,30 @@
 
 
 /**
- * @param {number} x
- * @return {boolean}
+ * Parameters:
+ *   @param {number} x - Integer input.
+ *
+ * Returns:
+ *   @return {boolean} - True if x is a palindrome, else false.
+ *
+ * Examples:
+ *   Input: 121 → true
+ *   Input: -121 → false
+ *
+ * Pseudo Code:
+ *   1. If x < 0 → false.
+ *   2. Convert x to string.
+ *   3. Compare reversed string with original.
  */
-var isPalindrome = function(x) {
-    // Negative numbers are not palindromes
-    if (x < 0) return false;
-
-    const str = x.toString();
-    const reversed = str.split('').reverse().join('');
-
-    return str === reversed;
-};
-
-// It takes linear time to process the number, O(n)
-// and linear space to store the reversed version. O(n)
-
+function isPalindrome(x) {
+  if (x < 0) return false;
+  const s = x.toString();
+  return s === s.split('').reverse().join('');
+}
+/**
+ * Time: O(n)
+ * Space: O(n)
+ */
 
 function isPalindrome(x) {
   // Negative numbers and numbers ending with 0 (except 0 itself) cannot be palindromes

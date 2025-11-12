@@ -27,28 +27,36 @@
 // Output: All integers that appear twice
 // Constraints: O(n) time, constant extra space (excluding output)
 
+/**
+ * Parameters:
+ *   @param {number[]} nums - Array where 1 ≤ nums[i] ≤ n.
+ *
+ * Returns:
+ *   @return {number[]} - Numbers appearing twice.
+ *
+ * Examples:
+ *   Input: [4,3,2,7,8,2,3,1]
+ *   Output: [2,3]
+ *
+ * Pseudo Code:
+ *   1. Traverse nums.
+ *   2. Use index = abs(num)-1; flip sign at that index.
+ *   3. If already negative → duplicate found.
+ */
 function findDuplicates(nums) {
-  const result = [];
-
-  // Point: Use the values as indices to mark visited numbers by negating the number at that index.
-  // Reason: Since numbers are in range [1, n], each number corresponds to a valid index.
-  // Example: nums = [4,3,2,7,8,2,3,1]
-  // - First 4 → index 3 → negate nums[3]
-  // - Second 2 → index 1 → nums[1] already negative → duplicate
-  // Point: Collect duplicates in result array.
-
+  const res = [];
   for (let i = 0; i < nums.length; i++) {
-    const index = Math.abs(nums[i]) - 1;
-
-    if (nums[index] < 0) {
-      result.push(Math.abs(nums[i]));
-    } else {
-      nums[index] = -nums[index];
-    }
+    const idx = Math.abs(nums[i]) - 1;
+    if (nums[idx] < 0) res.push(idx + 1);
+    nums[idx] = -nums[idx];
   }
-
-  return result;
+  return res;
 }
+/**
+ * Time: O(n)
+ * Space: O(1)
+ */
+
 
 // Example runs
 console.log(findDuplicates([4,3,2,7,8,2,3,1])); // [2,3]

@@ -39,33 +39,32 @@
 // title consists of words separated by a single space without any leading or trailing spaces.
 // Each word consists of uppercase and lowercase English letters and is non-empty.
 
+/**
+ * Parameters:
+ *   @param {string} title - A string of words separated by spaces.
+ *
+ * Returns:
+ *   @return {string} - Title-cased string following word-length rules.
+ *
+ * Examples:
+ *   Input: "capiTalIze tHe titLe" → "Capitalize The Title"
+ *   Input: "First leTTeR of EACH Word" → "First Letter of Each Word"
+ *   Input: "i lOve leetcode" → "i Love Leetcode"
+ *
+ * Pseudo Code:
+ *   1. Split title into words.
+ *   2. If word length ≤2 → lowercase; else capitalize first letter.
+ *   3. Join and return.
+ */
 function capitalizeTitle(title) {
-  // Point: We need to capitalize words correctly: if the word length is 1 or 2 → all lowercase; otherwise → first letter uppercase + rest lowercase.
-  // Reason: The problem defines two cases based on word length to decide casing.
-  // Example: title = "First leTTeR of EACH Word" → split into ["First","leTTeR","of","EACH","Word"], then transform → ["First","Letter","of","Each","Word"] → join → "First Letter of Each Word".
-  // Point: After processing each word, we join them back with spaces and return the new string.
-
   return title
     .split(' ')
-    .map(word => {
-      if (word.length <= 2) {
-        return word.toLowerCase();
-      } else {
-        return word[0].toUpperCase() + word.slice(1).toLowerCase();
-      }
-    })
+    .map(w => w.length <= 2
+      ? w.toLowerCase()
+      : w[0].toUpperCase() + w.slice(1).toLowerCase())
     .join(' ');
 }
-
-// Time Complexity: O(n) — 
-// Reason: We traverse the string once (via `split`, `map`, `slice/substring`, `join`). The cost grows linearly with the length of the input title.  
-// Impact: If the title length doubles, the work roughly doubles; this is efficient for typical input sizes (max length ~100 as per constraints).  
-
-// Space Complexity: O(n) — 
-// Reason: We create an array of words (split) and new strings for each transformed word, plus the final joined string. The extra memory is proportional to the input size.  
-// Impact: Memory usage grows with input size; for small titles this is trivial, but for very large strings (outside constraints) you’d want to be mindful.
-
-// “We first split the title into words. Then, for each word, we check its length: 
-// if it’s 1 or 2 letters, we convert it fully to lowercase; otherwise, we capitalize 
-// the first letter and lowercase the rest. Finally, we join all the words back with spaces. 
-// This runs in O(n) time because we process each character once, and uses O(n) space for the split array and transformed words.”
+/**
+ * Time: O(n)
+ * Space: O(n)
+ */
