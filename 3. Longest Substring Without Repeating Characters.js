@@ -50,6 +50,8 @@ function lengthOfLongestSubstring(s) {
   }
   return max;
 }
+
+console.log(lengthOfLongestSubstring("abcabcbb")); // 3
 /**
  * Time: O(n)
  * Space: O(min(n, charset))
