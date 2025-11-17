@@ -70,3 +70,27 @@ console.log(findDuplicates([1]));               // []
 // Space Complexity: O(1) —
 // Reason: We use only a few extra variables (index, result array excluded), modifying the array in-place without extra memory proportional to input size.
 // Impact: Memory use remains fixed regardless of array length, making it ideal for large arrays.
+
+function findDuplicates(nums) {
+  const duplicates = [];  // to store duplicate numbers
+
+  // Go through each number in the array
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+
+    // Check if this number appears again later in the array
+    if (nums.indexOf(num) !== i && !duplicates.includes(num)) {
+      duplicates.push(num);
+    }
+  }
+
+  return duplicates;  // return the list of duplicates
+}
+
+// const duplicates = []	Start an empty list for duplicates
+// for (...)	Loop through every number
+// nums.indexOf(num)	Find the first position of this number
+// !== i	Means we’ve already seen it
+// !duplicates.includes(num)	Prevent adding the same duplicate twice
+// duplicates.push(num)	Add the number to the result list
+// return duplicates	Give back the list of duplicates
